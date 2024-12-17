@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}{{ resume.name or 'Resume Details' }} - Resume Parser{% endblock %}
+
+{% block content %}
+<div class="bg-white shadow rounded-lg overflow-hidden">
+    <div class="px-4 py-5 sm:px-6">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-900">{{ resume.name or 'Unnamed Resume' }}</h1>
+            <a href="{{ url_for('resumes') }}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                Back to List
+            </a>
+        </div>
+    </div>
+    
+    <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+        <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+            <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">Email</dt>
+                <dd class="mt-1 text-sm text-gray-900">{{ resume.email or 'Not provided' }}</dd>
+            </div>
+            
+            <div class="sm:col-span-1">
+                <dt class="text-sm font-medium text-gray-500">Phone</dt>
+                <dd class="mt-1 text-sm text-gray-900">{{ resume.phone or 'Not provided' }}</dd>
+            </div>
+            
+            <div class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">Skills</dt>
+                <dd class="mt-1 text-sm text-gray-900">{{ resume.skills or 'Not provided' }}</dd>
+            </div>
+            
+            <div class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">Experience</dt>
+                <dd class="mt-1 text-sm text-gray-900 whitespace-pre-line">{{ resume.experience or 'Not provided' }}</dd>
+            </div>
+            
+            <div class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">Education</dt>
+                <dd class="mt-1 text-sm text-gray-900 whitespace-pre-line">{{ resume.education or 'Not provided' }}</dd>
+            </div>
+            
+            <div class="sm:col-span-2">
+                <dt class="text-sm font-medium text-gray-500">Social Links</dt>
+                <dd class="mt-1 text-sm text-gray-900">{{ resume.social_links or 'Not provided' }}</dd>
+            </div>
+        </dl>
+    </div>
+</div>
+{% endblock %}
